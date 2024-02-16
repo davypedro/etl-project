@@ -24,5 +24,5 @@ def extract_from_csv(path: str) -> List[pd.DataFrame]:
     return dataframe_list
 
 if __name__ == "__main__":
-    data_frame_list = extract_from_csv(path="data/input")
-    print(data_frame_list)
+    dataframe_list = extract_from_csv("data/input")
+    print(dataframe_list)
