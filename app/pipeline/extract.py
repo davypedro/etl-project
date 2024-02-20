@@ -3,21 +3,25 @@ import glob
 import pandas as pd
 from typing import List
 
-"""
-Funciton to read files from a folder 
-data/input and return a dataframes list
+def extract_from_csv(input_path: str) -> List[pd.DataFrame]:
+    """
+    Reads all CSV files from the specified folder and returns a list of pandas DataFrames.
 
-args: input_path (str): local path with files
+    Args:
+    - input_path (str): Path to the folder containing CSV files.
 
-return: dataframes list
-"""
+    Returns:
+    - List[pd.DataFrame]: A list containing a DataFrame for each CSV file in the specified folder.
 
-path = "data/input"
+    Notes:
+    - The function uses glob to find all files with a '.csv' extension within the specified folder.
+    - Each CSV file is read into a DataFrame, which is then appended to the list of DataFrames.
+    - The function assumes all files in the folder with a '.csv' extension are valid CSV files to be read.
+    """
 
-def extract_from_csv(path: str) -> List[pd.DataFrame]:
-    all_files = glob.glob(os.path.join(path, "*csv"))
+    all_files = glob.glob(os.path.join(input_path, "*.csv"))
 
-    dataframe_list = []
+    dataframe_list = [] 
     for file in all_files:
         dataframe_list.append(pd.read_csv(file))
 

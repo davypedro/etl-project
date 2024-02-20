@@ -6,12 +6,14 @@ def concat_dataframes(dataframe_list: List[pd.DataFrame]) -> pd.DataFrame:
     Concatenates a list of pandas DataFrames into a single DataFrame.
 
     Parameters:
-    - dataframe_list: List of pandas DataFrames to concatenate.
-    - ignore_index: Whether to ignore the original index and create a new integer index. Defaults to True.
-    - axis: The axis to concatenate along. 0 for vertical (default), 1 for horizontal.
-    - join: How to handle indexes on other axis. 'outer' for union (default), 'inner' for intersection.
-
+    - dataframe_list (List[pd.DataFrame]): List of pandas DataFrames to be concatenated.
+    
     Returns:
-    - A single concatenated pandas DataFrame.
+    - pd.DataFrame: A DataFrame resulting from the concatenation of the provided list of DataFrames.
+
+    Notes:
+    - The original indexes of the DataFrames are ignored, creating a new integer index for the resulting DataFrame.
+    - Concatenation is performed vertically (along axis 0), stacking the DataFrames in the list.
+    - The function uses the union of indexes ('outer' behavior) for the axes not being concatenated, including all columns from the DataFrames.
     """
-    return pd.concat(dataframe_list)
+    return pd.concat(dataframe_list, ignore_index=True)
