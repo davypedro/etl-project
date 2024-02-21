@@ -1,5 +1,11 @@
-import pandas as pd
+"""
+Module to transform data.
+"""
+
 from typing import List
+
+import pandas as pd
+
 
 def concat_dataframes(dataframe_list: List[pd.DataFrame]) -> pd.DataFrame:
     """
@@ -7,7 +13,7 @@ def concat_dataframes(dataframe_list: List[pd.DataFrame]) -> pd.DataFrame:
 
     Parameters:
     - dataframe_list (List[pd.DataFrame]): List of pandas DataFrames to be concatenated.
-    
+
     Returns:
     - pd.DataFrame: A DataFrame resulting from the concatenation of the provided list of DataFrames.
 

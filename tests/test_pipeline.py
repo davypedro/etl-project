@@ -1,8 +1,10 @@
 import pandas as pd
+
 from app.pipeline.transform import concat_dataframes
 
 df1 = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4]})
 df2 = pd.DataFrame({'col1': [5, 6], 'col2': [7, 8]})
+
 
 def test_dataframes_concat():
     """
@@ -21,7 +23,6 @@ def test_dataframes_concat():
     dataframe_list = [df1, df2]
     data_frame = pd.concat(dataframe_list, ignore_index=True)
 
-    
     # act
     df = concat_dataframes(dataframe_list)
 
