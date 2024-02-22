@@ -1,3 +1,3 @@
 """
-Main file.
+Main file from all project.
 """
